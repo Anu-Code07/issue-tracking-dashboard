@@ -1,4 +1,4 @@
-import { Status } from '@prisma/client'
+import type { Status } from '@prisma/client'
 import { Badge } from '@radix-ui/themes'
 import React from 'react'
 

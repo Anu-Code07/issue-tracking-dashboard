@@ -4,7 +4,7 @@ import { Table } from '@radix-ui/themes'
 import Link from 'next/link'
 import React from 'react'
 import NextLink from 'next/link';
-import { Issue, Status } from '@prisma/client'
+import type { Issue, Status } from '@prisma/client'
 
 export interface IssueQuery {
   status: Status;
