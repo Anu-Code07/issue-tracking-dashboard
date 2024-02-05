@@ -18,7 +18,7 @@ const LatestIssues = async () => {
       <Heading size="4" mb="5">Latest Issues</Heading>
       <Table.Root>
         <Table.Body>
-          {issues.map((issue) => (
+          {issues.map((issue:any) => (
             <Table.Row key={issue.id}>
               <Table.Cell>
                 <Flex justify="between">
@@ -28,14 +28,18 @@ const LatestIssues = async () => {
                     </Link>
                     <IssueStatusBadge status={issue.status} />
                   </Flex>
-                  {issue.assignedToUser && (
+                  {issue.assignedToUser? (
                     <Avatar
                       src={issue.assignedToUser.image!}
                       fallback="?"
                       size="2"
                       radius="full"
                     />
-                  )}
+                  ): <Avatar
+                  fallback="?"
+                  size="2"
+                  radius="full"
+                />}
                 </Flex>
               </Table.Cell>
             </Table.Row>

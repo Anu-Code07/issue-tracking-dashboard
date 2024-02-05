@@ -4,7 +4,8 @@ import { Table } from '@radix-ui/themes'
 import Link from 'next/link'
 import React from 'react'
 import NextLink from 'next/link';
-import { Issue, Status } from '@prisma/client'
+import { Issue, Status } from '@/prisma/generated/client'
+
 
 export interface IssueQuery {
   status: Status;
@@ -35,6 +36,7 @@ const IssueTable = ({ searchParams, issues }: Props) => {
                       orderBy: column.value,
                     },
                   }}
+
                 >
                   {column.label}
                 </NextLink>
@@ -49,7 +51,7 @@ const IssueTable = ({ searchParams, issues }: Props) => {
           {issues.map((issue) => (
             <Table.Row key={issue.id}>
               <Table.Cell>
-                <Link href={`/issues/${issue.id}`}>
+                <Link href={`/issues/${issue.id}`} className='underline hover:font-semibold'>
                   {issue.title}
                 </Link>
                 <div className="block md:hidden">
