@@ -13,7 +13,7 @@ const IssueSummary = ({ open, inProgress, closed }: Props) => {
   const containers: {
     label: string;
     value: number;
-    status: Status;
+    status: any;
   }[] = [
     { label: 'Open Issues', value: open, status: 'OPEN' },
     {
