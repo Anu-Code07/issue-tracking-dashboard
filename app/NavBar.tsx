@@ -6,17 +6,17 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { AiFillBug } from "react-icons/ai";
 import classnames from "classnames";
-import { useSession } from "next-auth/react";
+import { useSession,signIn, signOut } from "next-auth/react";
 import {
   Avatar,
   Box,
+  Button,
   Container,
   DropdownMenu,
   Flex,
   Text,
 } from "@radix-ui/themes";
 import { DashboardIcon, ListBulletIcon } from "@radix-ui/react-icons";
-
 const NavBar = () => {
   return (
     <nav className="border-b mb-5 px-5 py-3">
@@ -77,9 +77,9 @@ const AuthStatus = () => {
 
   if (status === "unauthenticated")
     return (
-      <Link className="nav-link" href="/api/auth/signin">
+      <Button className="nav-link" onClick={()=>signIn()}>
         Login
-      </Link>
+      </Button>
     );
 
   return (
@@ -100,7 +100,9 @@ const AuthStatus = () => {
             <Text size="2">{session!.user!.email}</Text>
           </DropdownMenu.Label>
           <DropdownMenu.Item>
-            <Link href="/api/auth/signout">Log out</Link>
+          <Button className="nav-link" onClick={()=>signOut()}>
+        Login
+      </Button>
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
