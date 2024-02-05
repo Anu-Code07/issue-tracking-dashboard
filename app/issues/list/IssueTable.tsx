@@ -35,6 +35,7 @@ const IssueTable = ({ searchParams, issues }: Props) => {
                       orderBy: column.value,
                     },
                   }}
+
                 >
                   {column.label}
                 </NextLink>
@@ -49,7 +50,7 @@ const IssueTable = ({ searchParams, issues }: Props) => {
           {issues.map((issue) => (
             <Table.Row key={issue.id}>
               <Table.Cell>
-                <Link href={`/issues/${issue.id}`}>
+                <Link href={`/issues/${issue.id}`} className='underline hover:font-semibold'>
                   {issue.title}
                 </Link>
                 <div className="block md:hidden">

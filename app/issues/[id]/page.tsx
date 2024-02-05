@@ -14,7 +14,7 @@ interface Props {
   params: { id: string };
 }
 
-const fetchUser = cache((issueId: number) => prisma.issue.findUnique({ where: { id: issueId }}));
+const fetchUser = ((issueId: number) => prisma.issue.findUnique({ where: { id: issueId }}));
 
 const IssueDetailPage = async ({ params }: Props) => {
   const session = await getServerSession(authOptions);

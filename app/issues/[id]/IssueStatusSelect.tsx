@@ -5,15 +5,11 @@ import { Issue, User } from "@prisma/client";
 import { Select } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { revalidatePath } from "next/cache";
+import { usePathname } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 
 const IssueStatusSelect = ({ issue }: { issue: Issue }) => {
-  const { data: users, error, isLoading } = useUsers();
-
-  if (isLoading) return <Skeleton />;
-
-  if (error) return null;
-
   const assignIssue = (status: string) => {
     axios
       .patch("/api/issues/" + issue.id, {
@@ -23,6 +19,8 @@ const IssueStatusSelect = ({ issue }: { issue: Issue }) => {
       })
       .catch(() => {
         toast.error("Changes could not be saved.");
+      }).finally(()=>{
+        
       });
   };
 
@@ -51,13 +49,6 @@ const IssueStatusSelect = ({ issue }: { issue: Issue }) => {
   );
 };
 
-const useUsers = () =>
-  useQuery<User[]>({
-    queryKey: ["users"],
-    queryFn: () =>
-      axios.get("/api/users").then((res) => res.data),
-    staleTime: 60 * 1000, //60s
-    retry: 3,
-  });
+
 
 export default IssueStatusSelect;
