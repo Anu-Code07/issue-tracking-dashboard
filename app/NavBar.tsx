@@ -99,11 +99,9 @@ const AuthStatus = () => {
           <DropdownMenu.Label>
             <Text size="2">{session!.user!.email}</Text>
           </DropdownMenu.Label>
-          <DropdownMenu.Item>
           <Button className="nav-link" onClick={()=>signOut()}>
-        Login
+        Logout
       </Button>
-          </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
     </Box>
