@@ -9,7 +9,7 @@ import { Status } from '@/prisma/generated/client';
 interface Props {
   searchParams: IssueQuery
 }
-
+export const revalidate = 0;
 const IssuesPage = async ({ searchParams }: Props) => {
   const statuses = Object.values(Status);
   const status = statuses.includes(searchParams.status)
