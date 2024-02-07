@@ -66,8 +66,10 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
           >
             OK
           </Button>
+         
         </AlertDialog.Content>
       </AlertDialog.Root>
+   
     </>
   );
 };
