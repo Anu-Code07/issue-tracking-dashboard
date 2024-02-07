@@ -20,7 +20,7 @@ const Pagination = ({
   const searchParams = useSearchParams();
 
   const pageCount = Math.ceil(itemCount / pageSize);
-  if (pageCount <= 1) return null;
+  // if (pageCount <= 1) return null;
 
   const changePage = (page: number) => {
     const params = new URLSearchParams(searchParams);
@@ -30,7 +30,7 @@ const Pagination = ({
 
   return (
     <Flex align="center" gap="2">
-      <Text size="8">
+      <Text size="2">
         Page {currentPage} of {pageCount}
       </Text>
       <Button

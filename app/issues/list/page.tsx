@@ -33,7 +33,7 @@ const IssuesPage = async ({ searchParams }: Props) => {
   });
 
   const issueCount = await prisma.issue.count({ where });
-
+ 
   return (
     <Flex direction="column" gap="3">
       <IssueActions />
